@@ -3,7 +3,10 @@
 This file sets up version properties in our own Scratch way.
 -->
 <Project>
+  <!--  
 	<Target Name="ScratchVersion" DependsOnTargets="GitVersion">
+  -->
+  <Target Name="ScratchVersion">
 		<!--
 		<Message Text="GitInfo: GitRepositoryUrl = $(GitRepositoryUrl)" />
 		<Message Text="GitInfo: GitBranch = $(GitBranch)" />
@@ -31,7 +34,9 @@ This file sets up version properties in our own Scratch way.
 			<ScratchVersionBuildNumber>$([System.Text.RegularExpressions.Regex]::Match($(GitSemVerLabel), '\d+$'))</ScratchVersionBuildNumber>
 			<ScratchVersionBuildNumber Condition=" '$(ScratchVersionBuildNumber)' == '' ">$(GitCommits)</ScratchVersionBuildNumber>
 			<ScratchVersionQuad>$(ScratchVersionTriplet).$(ScratchVersionBuildNumber)</ScratchVersionQuad>
+      <!--
 			<ScratchVersionBuildTime>$([System.DateTime]::Parse($(GitCommitDate)).ToUniversalTime().ToString(y.Mdd.Hmm))</ScratchVersionBuildTime>
+      -->
 		</PropertyGroup>
 		<Message Text="ScratchVersionTriplet = $(ScratchVersionTriplet)" />
 		<Message Text="ScratchVersionFull = $(ScratchVersionFull)" />
@@ -39,6 +44,8 @@ This file sets up version properties in our own Scratch way.
 		<Message Text="ScratchVersionDetail = $(ScratchVersionDetail)" />
 		<Message Text="ScratchVersionBuildNumber = $(ScratchVersionBuildNumber)" />
 		<Message Text="ScratchVersionQuad = $(ScratchVersionQuad)" />
+    <!--
 		<Message Text="ScratchVersionBuildTime = $(ScratchVersionBuildTime)" />
+    -->
 	</Target>
 </Project>
