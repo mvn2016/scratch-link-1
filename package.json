@@ -20,6 +20,7 @@
     "@semantic-release/git": "10.0.1",
     "@semantic-release/npm": "10.0.3",
     "@semantic-release/release-notes-generator": "10.0.3",
+    "eslint": "^8.56.0",
     "husky": "8.0.3",
     "scratch-vm": "1.6.19",
     "semantic-release": "21.0.1"
