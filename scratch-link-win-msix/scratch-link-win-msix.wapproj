@@ -102,7 +102,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="GitInfo" Version="2.3.0" />
+    <PackageReference Include="GitInfo" Version="3.3.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="H.NotifyIcon.WinUI" Version="2.0.124" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
   <Import Project="$(SolutionDir)SharedProps\WindowsSDK.props" />
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
@@ -127,11 +132,12 @@
       </_ScratchAppxManifestNamespaces>
     </PropertyGroup>
     <!-- Inject the correct version into the XML file in the intermediate path -->
-    <XmlPoke
-      XmlInputPath="%(AppxManifest.Identity)"
-      Query="/am:Package/am:Identity/@Version"
-      Value="$(ScratchVersionQuad)"
-      Namespaces="$(_ScratchAppxManifestNamespaces)"
-    />
+    <!--
+    <XmlPoke XmlInputPath="%(AppxManifest.Identity)" Query="/am:Package/am:Identity/@Version" Value="$(ScratchVersionQuad)" Namespaces="$(_ScratchAppxManifestNamespaces)" />
+    -->
   </Target>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.2428" />
+    <PackageReference Update="Microsoft.WindowsAppSDK" Version="1.4.231219000" />
+  </ItemGroup>
 </Project>
